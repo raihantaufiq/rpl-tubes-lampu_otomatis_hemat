@@ -17,7 +17,7 @@
       arr_labels.push(label[i].textContent)
       arr_data.push(nilai[i].textContent)
   }
-  document.getElementsByName("table_temp")[0].remove();
+  //document.getElementsByName("table_temp")[0].remove();
   // eslint-disable-next-line no-unused-vars
   var myChart = new Chart(ctx, {
     type: 'bar',
@@ -26,10 +26,10 @@
       datasets: [{
         data: arr_data,
         lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: '#007bff',
+        backgroundColor: '#7c3aed',
+        // borderColor: '#007bff',
         borderWidth: 2,
-        pointBackgroundColor: '#007bff'
+        pointBackgroundColor: '#7c3aed'
       }]
     },
     options: {
@@ -38,6 +38,19 @@
           ticks: {
             beginAtZero: true
           }
+          ,
+          // scaleLabel: {
+          //   display: true,
+          //   labelString: 'Penggunaan Listrik (kWh)'
+          // }
+          // ,
+        }]
+        ,
+        xAxes: [{
+          // scaleLabel: {
+          //   display: true,
+          //   labelString: 'Waktu (jam)'
+          // }
         }]
       },
       legend: {

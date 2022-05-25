@@ -37,7 +37,7 @@
                 // $_SESSION['nama'] = $data['nama_mhs']; // Set session nama dan isi dari data nama
         
                 // setcookie("message", "", time()-60); //delete cookie message
-                header("location: dashboard.html"); // redirect ke halaman welcome.php
+                header("location: index.php"); // redirect ke halaman welcome.php
             }
         }
         else{

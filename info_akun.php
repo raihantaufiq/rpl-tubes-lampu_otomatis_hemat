@@ -19,7 +19,7 @@
 
     $row = $akun->getResult();
     $data .= '<img src="img/default_profile.jpg" class="w-1/5" alt="">
-    <div class="flex flex-col mt-7 p-4 rounded-md border">
+    <div class="flex flex-col mt-7 p-8 rounded-2xl border">
         <div class="flex flex-row mb-2">
             <p class="w-28">Username</p>
             <p class="mr-2">:</p>
