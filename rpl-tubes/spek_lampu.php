@@ -18,7 +18,7 @@
     $data = null;
 
     $row = $lampu->getResult();
-    $data .= '<div class="flex flex-col mt-2 px-8 py-10 rounded-md space-y-2 border">
+    $data .= '<div class="flex flex-col items-center"><div class="flex flex-col mt-2 p-14 rounded-3xl space-y-4 border">
     <div class="flex flex-row">
         <p class="w-28">Jenis</p>
         <p class="mr-2">:</p>
@@ -55,9 +55,10 @@
         <p>' . $row['warna_cahaya'] . '</p>
     </div>
 </div>
-<a href="ubah_lampu.php?id_ubah=' . $row['id_lampu'] . '" class="mt-6 w-1/5">
-<button type="button" class="bg-violet-500 w-full px-4 py-2 rounded-md text-white hover:bg-violet-700 duration-150 delay-75">Ubah</button>
+<a href="ubah_lampu.php?id_ubah=' . $row['id_lampu'] . '" class="mt-6 w-4/5">
+<button type="button" class="bg-violet-600 w-full px-4 py-2 rounded-md text-white hover:bg-violet-800 duration-150 delay-75">Ubah</button>
 </a>
+</div>
 ';
 
 
