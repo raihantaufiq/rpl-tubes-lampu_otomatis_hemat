@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2022 at 12:06 AM
+-- Generation Time: May 26, 2022 at 03:57 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -82,7 +82,14 @@ CREATE TABLE `laporan` (
 
 INSERT INTO `laporan` (`id_laporan`, `id_lampu`, `waktu_penggunaan`, `penggunaan_listrik`, `waktu_entri`) VALUES
 (3, 1, 0.016, 0.6, '2022-05-12 15:55:00'),
-(4, 1, 0.01, 0.5, '2022-05-12 15:56:00');
+(4, 1, 0.01, 0.5, '2022-05-12 15:56:00'),
+(5, 1, 0.01, 0.5, '2022-05-12 17:37:32'),
+(6, 1, 0.01, 0.1, '2022-05-12 17:46:32'),
+(7, 1, 0.01, 0.6, '2022-05-09 22:11:09'),
+(8, 1, 0.01, 0.5, '2022-05-14 07:39:41'),
+(9, 1, 0.01, 0.5, '2022-06-02 10:27:06'),
+(10, 1, 0.01, 0.5, '2022-05-19 10:27:57'),
+(11, 1, 0.016, 0.6, '2022-05-26 10:28:19');
 
 --
 -- Indexes for dumped tables
@@ -121,7 +128,7 @@ ALTER TABLE `lampu`
 -- AUTO_INCREMENT for table `laporan`
 --
 ALTER TABLE `laporan`
-  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
