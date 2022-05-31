@@ -21,7 +21,7 @@
         if($username != '' && $password != ''){
 
             // Buat query untuk mengecek apakah ada data user dengan username dan password yang dikirim dari form
-            $sql = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
+            $sql = "SELECT * FROM akun WHERE username = '$username' AND password = '$password'";
             $query = mysqli_query($conn, $sql);
             $data = mysqli_fetch_assoc($query); // Ambil data dari hasil query
         
