@@ -34,7 +34,7 @@ class Lampu extends DB
         daya_lampu = '$daya', 
         masa_pakai = '$masa_pakai',
         lumen = '$lumen',
-        volt = '$volt',
+        tegangan = '$volt',
         warna_cahaya = '$warna_cahaya'
         WHERE id_lampu = $id_lampu;";
 

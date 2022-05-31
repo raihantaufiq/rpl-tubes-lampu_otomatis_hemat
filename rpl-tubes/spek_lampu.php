@@ -40,13 +40,13 @@
     <div class="flex flex-row">
         <p class="w-28">Lumen</p>
         <p class="mr-2">:</p>
-        <p>' . $row['lumen'] . '</p>
+        <p>' . $row['lumen'] . ' lm</p>
     </div>
 
     <div class="flex flex-row">
-        <p class="w-28">Volt</p>
+        <p class="w-28">Tegangan</p>
         <p class="mr-2">:</p>
-        <p>' . $row['volt'] . '</p>
+        <p>' . $row['tegangan'] . '</p>
     </div>
 
     <div class="flex flex-row">
