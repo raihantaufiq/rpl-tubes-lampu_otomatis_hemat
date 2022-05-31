@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2022 at 03:57 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.4.16
+-- Generation Time: May 31, 2022 at 06:22 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,19 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Table structure for table `akun`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE `akun` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `admin`
+-- Dumping data for table `akun`
 --
 
-INSERT INTO `admin` (`username`, `password`) VALUES
+INSERT INTO `akun` (`username`, `password`) VALUES
 ('admin', '123');
 
 -- --------------------------------------------------------
@@ -51,7 +51,7 @@ CREATE TABLE `lampu` (
   `jenis` varchar(255) NOT NULL,
   `masa_pakai` int(11) NOT NULL,
   `lumen` int(11) NOT NULL,
-  `volt` varchar(255) NOT NULL,
+  `tegangan` varchar(255) NOT NULL,
   `warna_cahaya` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -59,46 +59,41 @@ CREATE TABLE `lampu` (
 -- Dumping data for table `lampu`
 --
 
-INSERT INTO `lampu` (`id_lampu`, `daya_lampu`, `jenis`, `masa_pakai`, `lumen`, `volt`, `warna_cahaya`) VALUES
-(1, 0.052, 'Diode LED 3mm', 100000, 3480, '1.8V - 3.4V', 'Putih');
+INSERT INTO `lampu` (`id_lampu`, `daya_lampu`, `jenis`, `masa_pakai`, `lumen`, `tegangan`, `warna_cahaya`) VALUES
+(1, 1, 'Diode LED 3mm', 100000, 3480, '1.8V - 3.4V', 'Putih');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `laporan`
+-- Table structure for table `penggunaan_listrik`
 --
 
-CREATE TABLE `laporan` (
-  `id_laporan` int(11) NOT NULL,
+CREATE TABLE `penggunaan_listrik` (
+  `id_penggunaan_listrik` int(11) NOT NULL,
   `id_lampu` int(11) NOT NULL,
-  `waktu_penggunaan` float NOT NULL,
-  `penggunaan_listrik` float NOT NULL,
-  `waktu_entri` datetime NOT NULL
+  `waktu_nyala` datetime NOT NULL,
+  `waktu_mati` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `laporan`
+-- Dumping data for table `penggunaan_listrik`
 --
 
-INSERT INTO `laporan` (`id_laporan`, `id_lampu`, `waktu_penggunaan`, `penggunaan_listrik`, `waktu_entri`) VALUES
-(3, 1, 0.016, 0.6, '2022-05-12 15:55:00'),
-(4, 1, 0.01, 0.5, '2022-05-12 15:56:00'),
-(5, 1, 0.01, 0.5, '2022-05-12 17:37:32'),
-(6, 1, 0.01, 0.1, '2022-05-12 17:46:32'),
-(7, 1, 0.01, 0.6, '2022-05-09 22:11:09'),
-(8, 1, 0.01, 0.5, '2022-05-14 07:39:41'),
-(9, 1, 0.01, 0.5, '2022-06-02 10:27:06'),
-(10, 1, 0.01, 0.5, '2022-05-19 10:27:57'),
-(11, 1, 0.016, 0.6, '2022-05-26 10:28:19');
+INSERT INTO `penggunaan_listrik` (`id_penggunaan_listrik`, `id_lampu`, `waktu_nyala`, `waktu_mati`) VALUES
+(12, 1, '2022-05-30 20:15:30', '2022-05-30 20:20:30'),
+(13, 1, '2022-05-30 23:39:27', '2022-05-30 23:40:27'),
+(14, 1, '2022-05-30 20:34:42', '2022-05-30 20:36:42'),
+(15, 1, '2022-05-30 20:35:55', '2022-05-30 20:38:55'),
+(16, 1, '2022-05-31 20:30:11', '2022-05-31 21:30:11');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `admin`
+-- Indexes for table `akun`
 --
-ALTER TABLE `admin`
+ALTER TABLE `akun`
   ADD PRIMARY KEY (`username`);
 
 --
@@ -108,10 +103,10 @@ ALTER TABLE `lampu`
   ADD PRIMARY KEY (`id_lampu`);
 
 --
--- Indexes for table `laporan`
+-- Indexes for table `penggunaan_listrik`
 --
-ALTER TABLE `laporan`
-  ADD PRIMARY KEY (`id_laporan`),
+ALTER TABLE `penggunaan_listrik`
+  ADD PRIMARY KEY (`id_penggunaan_listrik`),
   ADD KEY `id_lampu` (`id_lampu`);
 
 --
@@ -125,20 +120,20 @@ ALTER TABLE `lampu`
   MODIFY `id_lampu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `laporan`
+-- AUTO_INCREMENT for table `penggunaan_listrik`
 --
-ALTER TABLE `laporan`
-  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+ALTER TABLE `penggunaan_listrik`
+  MODIFY `id_penggunaan_listrik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `laporan`
+-- Constraints for table `penggunaan_listrik`
 --
-ALTER TABLE `laporan`
-  ADD CONSTRAINT `laporan_ibfk_1` FOREIGN KEY (`id_lampu`) REFERENCES `lampu` (`id_lampu`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `penggunaan_listrik`
+  ADD CONSTRAINT `penggunaan_listrik_ibfk_1` FOREIGN KEY (`id_lampu`) REFERENCES `lampu` (`id_lampu`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

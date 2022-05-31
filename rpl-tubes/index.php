@@ -14,7 +14,7 @@ include("includes/Template.class.php");
 $laporan = new Laporan($db_host, $db_user, $db_pass, $db_name);
 $laporan->open();
 
-$tanggal = "2022-5-12";
+$tanggal = date_format(date_create("now"),"Y-m-d");;
 $tipe = "day";
 
 if (isset($_POST['tfilter_waktu'])) {
@@ -200,5 +200,6 @@ $tpl->replace("DATA_FILTER_WAKTU_WEEK", $data_filter_selected[1]);
 $tpl->replace("DATA_FILTER_WAKTU_MONTH", $data_filter_selected[2]);
 $tpl->replace("DATA_FILTER_WAKTU_YEAR", $data_filter_selected[3]);
 $tpl->write();
-  
+
+
 ?>

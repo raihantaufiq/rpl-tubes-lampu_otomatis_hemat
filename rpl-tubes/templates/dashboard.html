@@ -9,10 +9,19 @@
 
     <!-- CDN TAILWIND -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @media print{
+            .absurd{
+                visibility: hidden;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <!-- NAVBAR -->
-    <div class="bg-white w-full mt-[75px]">
+    <div class="bg-white w-full mt-[75px] absurd">
         <div class="bg-white/80 shadow fixed top-0 left-0 right-0 z-10 backdrop-blur-md">
             <div class="container mx-auto px-4">
                 <div class="flex items-center justify-between py-4"> 
@@ -29,7 +38,8 @@
     
     <!-- MAIN SECTION -->
     <div class="flex flex-row h-screen">
-        <div class="flex flex-col bg-violet-600 w-1/6 -m-2 shadow-lg">
+        <!-- SIDEBAR -->
+        <div class="flex flex-col bg-violet-600 w-1/6 -m-2 shadow-lg absurd">
             <a href="index.php" class="flex flex-row items-center justify-center space-x-2 py-6">
                 <div class="w-1/5">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full text-white scale-110" viewBox="0 0 20 20" fill="currentColor">
@@ -53,7 +63,7 @@
         </div>
 
         <!-- DATA PENGGUNAAN LISTRIK -->
-        <div class="flex flex-col w-4/5 mx-10 items-center py-2 px-8">
+        <div class="flex flex-col mx-10 w-4/5 items-center py-2 px-8" id="yess">
             <div class="-mt-1 mb-12 text-center space-y-1">
                 <h1 class="text-[1.4rem] text-slate-600 font-medium mt-1">DATA_PENGGUNAAN_LISTRIK</h1>
                 <p class="text-xs text-violet-600 font-semibold -mb-2">DATA_TAMPILAN_TANGGAL</p>
@@ -79,14 +89,13 @@
                         <div class="text-sm mt-1 font-medium text-violet-700 mb-4">DATA_LABEL_X</div>
 
                         <!-- MODE DAN FILTER -->
-                        <form action="index.php" method="POST" enctype="multipart/form-data" class="flex flex-row place-items-start space-x-4">
+                        <form action="index.php" method="POST" enctype="multipart/form-data" class="flex flex-row place-items-start space-x-4 absurd">
                             <!-- MODE TAMPILAN -->
-                            <label for="tmode_tampilan" class="block">
+                            <!-- <label for="tmode_tampilan" class="block">
                                 <select name="tmode_tampilan" id="tmode_tampilan" class="py-2 px-2 bg-white border shadow-sm border-slate-300 focus:outline-none focus:border-violet-600 focus:ring-violet-600 block w-full text-sm rounded-md focus:ring-1">
                                     <option value="diagram_batang">Diagram Batang</option>
-                                    <!-- <option value="tabel">Tabel</option> -->
                                 </select>
-                            </label>
+                            </label> -->
                             
                             <!-- FILTER_WAKTU -->
                             <label for="tfilter_waktu" class="block">
@@ -104,11 +113,21 @@
                             </label>
                             
                             <!-- BUTTON -->
-                            <div>
+                            <div class="flex flex-row space-x-10">
                                 <button name="btn-mode" id="btn-mode" type="submit" class="inline-flex justify-center py-2 px-5 w-full border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-violet-600 hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500">
                                     OK
                                 </button>
                             </div>
+
+                            <!-- DOWNLOAD -->
+                            <a href="#" onclick="window.print();"
+                            class="flex flex-row items-center ml-4 text-violet-800 bg-gray-100 border border-violet-500 text-sm font-medium px-4 py-2 rounded-md hover:text-violet-800 hover:bg-gray-50 duration-200 delay-150">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                Download
+                            </a>
+
                         </form>
                         <!-- END OF MODE DAN FILTER -->
                     </div>
